@@ -58,7 +58,14 @@ class TrainModel():
             out[split] = losses.mean()
         model.train()
         return out
+    
+    def print_output(self, model, context):
+        output = encoder.decode(model.generate(context, max_new_tokens=500)[0].tolist())
+        print(output)
 
+    def save_output(self, model, context):
+        output = encoder.decode(model.generate(context, max_new_tokens=10000)[0].tolist())
+        open('more.txt', 'w').write(output)
 
 if __name__ == "__main__":
     # ==== Run Training ==== #
@@ -104,5 +111,5 @@ if __name__ == "__main__":
     # generate from the model
     context = torch.zeros((1, 1), dtype=torch.long, device=device)
 
-    print(encoder.decode(m.generate(context, max_new_tokens=500)[0].tolist()))
-    # open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
+    # output
+    training.print_output(m, context)
