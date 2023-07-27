@@ -1,0 +1,7 @@
+transformers
+datasets
+tiktoken
+wandb
+tqdm
+torch
+autopep8
