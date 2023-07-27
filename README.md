@@ -1,6 +1,6 @@
 # Language Model From Scratch
 
-### This is a well-documented language model that I've built from scratch, defaulting to about 11 million parameters that I have been using to learn about language models. 
+### This is a well-documented language model that I've built from scratch, defaulting to about 11 million parameters. 
 
 This project contains two language models, each broken up into their distinct parts.
 
