@@ -4,7 +4,8 @@ from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from .hyperparameters import max_length
 
 
-MODEL='/home/alexyounger/Documents/Develop/AI/Testing/text-generation-webui/models/gpt2'
+MODEL = '/home/alexyounger/Documents/Develop/AI/Testing/text-generation-webui/models/gpt2'
+
 
 class Inference():
     def load_model(self):
@@ -28,7 +29,6 @@ class Inference():
             top_p=0.95,
         )
         print(tokenizer.decode(final_outputs[0], skip_special_tokens=True))
-
 
 
 sequence = "Tell me about"

@@ -1,4 +1,8 @@
 *
 !checkpoints
 !checkpoints/.gitkeep
+!tuned_models
+!tuned_models/.gitkeep
+!outputs
+!outputs/.gitkeep
 !.gitignore

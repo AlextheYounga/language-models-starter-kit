@@ -6,7 +6,7 @@ from .gpt_language_model import GPTLanguageModel
 
 INPUT_FILE = 'data/input.txt'
 TEXT = open(INPUT_FILE, 'r', encoding='utf-8').read()
-MODEL_NAME = 'alex_tweets_model'
+MODEL_NAME = 'scratch_gpt2_model'
 CHECKPOINT_DIRECTORY = 'storage/checkpoints'
 
 
