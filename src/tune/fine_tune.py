@@ -1,6 +1,6 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 from transformers import TextDataset, DataCollatorForLanguageModeling
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
+from transformers import GPT2Tokenizer, GPT2LMHeadModel, AutoTokenizer, AutoModelForCausalLM
 from transformers import Trainer, TrainingArguments
 from .hyperparameters import *
 
@@ -12,6 +12,9 @@ TUNED_MODEL_SAVE_DIRECTORY = 'storage/trained_models/alex_model_gpt2'
 
 
 class FineTune():
+    def __init__(self, model_family):
+        self.model_family = model_family
+
     def load_dataset(self, file_path, tokenizer):
         dataset = TextDataset(
             tokenizer=tokenizer,
@@ -28,15 +31,19 @@ class FineTune():
         return data_collator
 
     def train(self):
-        tokenizer = GPT2Tokenizer.from_pretrained(PRETRAINED_MODEL)
+        if self.model_family == "gpt2":
+            tokenizer = GPT2Tokenizer.from_pretrained(PRETRAINED_MODEL)
+            model = GPT2LMHeadModel.from_pretrained(PRETRAINED_MODEL)
+        else:
+            # You may run into problems if your GPU has 16GB memory or less
+            tokenizer = AutoTokenizer.from_pretrained(PRETRAINED_MODEL)
+            model = AutoModelForCausalLM.from_pretrained(PRETRAINED_MODEL)
+
+        tokenizer.save_pretrained(TUNED_MODEL_SAVE_DIRECTORY)
 
         train_dataset = self.load_dataset(INPUT_FILE, tokenizer)
 
         data_collator = self.load_data_collator(tokenizer)
-
-        tokenizer.save_pretrained(TUNED_MODEL_SAVE_DIRECTORY)
-
-        model = GPT2LMHeadModel.from_pretrained(PRETRAINED_MODEL)
 
         model.save_pretrained(TUNED_MODEL_SAVE_DIRECTORY)
 
@@ -60,6 +67,6 @@ class FineTune():
 
 
 # Train
-tune = FineTune()
+tune = FineTune('gpt2')
 
 tune.train()
