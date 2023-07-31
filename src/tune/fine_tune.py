@@ -5,10 +5,18 @@ from transformers import Trainer, TrainingArguments
 from .hyperparameters import *
 
 
+"""
+This class allows you to fine-tune a pretrained model, such as gpt2.
+Here is an example of a model I've been tuning: https://huggingface.co/gpt2
+Download the model into any folder and then link to the model in the PRETRAINED_MODEL variable.
+Fine tuning pretrained models will require a decent amount of GPU memory. I use a an NVIDIA GeForce RTX 4080 with
+16GB memory and struggle with many newer GPT3 models. 
+"""
+
 INPUT_FILE = 'data/input.txt'
 TEXT = open(INPUT_FILE, 'r', encoding='utf-8').read()
-PRETRAINED_MODEL = '/home/alexyounger/Documents/Develop/AI/Testing/text-generation-webui/models/gpt2'
-TUNED_MODEL_SAVE_DIRECTORY = 'storage/trained_models/alex_model_gpt2'
+PRETRAINED_MODEL = '/path/to/your/pretrained/model'
+TUNED_MODEL_SAVE_DIRECTORY = 'storage/trained_models/gpt2_model'
 
 
 class FineTune():
@@ -67,6 +75,7 @@ class FineTune():
 
 
 # Train
+# If your model is not a gpt2 variant, make sure to remove this 'gpt2' in the FineTune() class instantiation.
 tune = FineTune('gpt2')
 
 tune.train()

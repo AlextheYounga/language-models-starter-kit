@@ -4,7 +4,7 @@ from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from .hyperparameters import max_length
 
 
-MODEL = '/home/alexyounger/Documents/Develop/AI/Testing/text-generation-webui/models/gpt2'
+MODEL = '/path/to/your/pretrained/model'
 
 
 class Inference():

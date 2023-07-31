@@ -67,6 +67,8 @@ class TrainModel():
         output = encoder.decode(model.generate(context, max_new_tokens=10000)[0].tolist())
         open('storage/outputs/gpt-inference-text.txt', 'w').write(output)
 
+
+
 if __name__ == "__main__":
     # ==== Run Training ==== #
 
