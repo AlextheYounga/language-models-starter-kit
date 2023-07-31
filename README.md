@@ -1,6 +1,6 @@
 # Language Models Starter Kit
 
-## This is everything you need to get started building your own GPT models from the ground up, or fine-tuning pre-existing models using your own data. 
+## This is everything you need to either get started building your own GPT models from the ground up, or fine-tune existing models using your own data. 
 
 This project contains two main directories, `models` and `tune`:
 ```
