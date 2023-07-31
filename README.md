@@ -31,6 +31,10 @@ https://huggingface.co/gpt2
 
 Just simply clone this gpt2 repository somewhere on your computer, and set the path in the `fine_tune.py` file. 
 
+```bash
+git clone https://huggingface.co/gpt2
+```
+
 ### Inference
 I have two methods of testing inference with the model built into the `src/tune` folder. You can run the `src/tune/inference.py` file, or test it out in a simple terminal chat interface in the `src/tune/chatbot.py` file.
 
