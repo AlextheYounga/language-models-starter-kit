@@ -3,6 +3,10 @@ from ..encoder import Encoder
 from .hyperparameters import *
 from .gpt_language_model import GPTLanguageModel
 
+"""
+This is essentially how ChatGPT is built on a micro level. This provides the fundamentals of GPT models
+using self-attention. 
+"""
 
 INPUT_FILE = 'data/input.txt'
 TEXT = open(INPUT_FILE, 'r', encoding='utf-8').read()
@@ -86,7 +90,6 @@ if __name__ == "__main__":
     # print the number of parameters in the model
     parameters_number = sum(p.numel() for p in m.parameters())/1e6
     print(parameters_number, 'M parameters')
-    # Default -> 10.898896 M parameters
 
     # create a PyTorch optimizer
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
