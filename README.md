@@ -16,15 +16,18 @@ This project contains two main directories, `models` and `tune`:
 │       └── inference.py
 ```
 ### Model Concepts
-You can play around with the concepts in language models in the `models` folder. Here there are two kinds of LM strategies,
-each broken up into their distinct parts:
+You can play around with the concepts of language models in the `models` folder. Here there are two kinds of LM strategies documented in this repo:
 
 - **Bigram Language Model**: A bigram model is a type of n-gram model that predicts the probability of a word based on the previous word. It considers pairs of consecutive words (bigrams) and calculates the conditional probability of the current word given the previous word.
 
 - **GPT Language Model**: GPT is a transformer-based language model that uses a deep neural network architecture, specifically the Transformer model. It is a much more sophisticated model that considers the entire context of a sentence, not just the previous word. GPT is based on a self-attention mechanism that allows it to weigh the importance of each word in the context and capture long-range dependencies in text.
 
 ### Fine Tuning
-You can fine-tune pre-existing models using your own training data. This is fairly straightforward, and all the primary logic for that takes place inside the `src/tune/fine_tune.py` file. You can place your existing model anywhere as long as you specify the path to that model's directory with the `PRETRAINED_MODEL` constant inside the `fine_tune.py` file.
+You can fine-tune pre-existing models using your own training text. This is fairly straightforward, and all the primary logic for that takes place inside the `src/tune/fine_tune.py` file. You can place your existing model anywhere as long as you specify the path to that model's directory with the `PRETRAINED_MODEL` constant inside the `fine_tune.py` file.
+
+Here's an example of a pretrained model you can use here:
+https://huggingface.co/gpt2
+Just simply clone this gpt2 repository somewhere on your computer, and set the path in the `fine_tune.py` file. 
 
 ### Inference
 I have two methods of testing inference with the model built into the `src/tune` folder. You can run the `src/tune/inference.py` file, or test it out in a simple terminal chat interface in the `src/tune/chatbot.py` file.
