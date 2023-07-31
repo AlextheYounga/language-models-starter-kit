@@ -8,7 +8,7 @@ For a better chat experience, I recommend this repository:
 https://github.com/oobabooga/text-generation-webui
 """
 
-MODEL = 'path/to/your/model'
+MODEL = '/path/to/your/pretrained/model/directory'
 MAX_LENGTH = 50
 
 class ChatBot():

@@ -5,7 +5,7 @@ from .hyperparameters import max_length
 import sys
 
 
-MODEL = '/path/to/your/model'
+MODEL = '/path/to/your/pretrained/model/directory'
 
 
 class Inference():

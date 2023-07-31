@@ -15,7 +15,7 @@ Fine tuning pretrained models will require a decent amount of GPU memory. I use 
 
 INPUT_FILE = 'data/input.txt'
 TEXT = open(INPUT_FILE, 'r', encoding='utf-8').read()
-PRETRAINED_MODEL = '/path/to/your/pretrained/model'
+PRETRAINED_MODEL = '/path/to/your/pretrained/model/directory'
 TUNED_MODEL_SAVE_DIRECTORY = 'storage/trained_models/gpt2_model'
 
 

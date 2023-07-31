@@ -8,24 +8,23 @@ This project contains two main directories, `models` and `tune`:
 │   ├── models
 │   │   ├── bigram
 │   │   ├── encoder.py
-│   │   ├── gpt
-│   │   └── __pycache__
+│   │   └── gpt
 │   └── tune
+│       ├── chatbot.py
 │       ├── fine_tune.py
 │       ├── hyperparameters.py
 │       └── inference.py
-
 ```
 ### Model Concepts
 You can play around with the concepts in language models in the `models` folder. Here there are two kinds of LM strategies,
 each broken up into their distinct parts:
 
-- Bigram Language Model: A bigram model is a type of n-gram model that predicts the probability of a word based on the previous word. It considers pairs of consecutive words (bigrams) and calculates the conditional probability of the current word given the previous word.
+- **Bigram Language Model**: A bigram model is a type of n-gram model that predicts the probability of a word based on the previous word. It considers pairs of consecutive words (bigrams) and calculates the conditional probability of the current word given the previous word.
 
-- GPT Language Model: GPT is a transformer-based language model that uses a deep neural network architecture, specifically the Transformer model. It is a much more sophisticated model that considers the entire context of a sentence, not just the previous word. GPT is based on a self-attention mechanism that allows it to weigh the importance of each word in the context and capture long-range dependencies in text.
+- **GPT Language Model**: GPT is a transformer-based language model that uses a deep neural network architecture, specifically the Transformer model. It is a much more sophisticated model that considers the entire context of a sentence, not just the previous word. GPT is based on a self-attention mechanism that allows it to weigh the importance of each word in the context and capture long-range dependencies in text.
 
 ### Fine Tuning
-Or you can fine-tune pre-existing models using your own training data. This one is fairly straightforward, and all the primary logic for that takes place inside the `src/tune/fine_tune.py` file. 
+You can fine-tune pre-existing models using your own training data. This is fairly straightforward, and all the primary logic for that takes place inside the `src/tune/fine_tune.py` file. There are instructions inside of that file on where to place your models.  
 
 ### Inference
 I have two methods of testing inference with the model built into the `src/tune` folder. You can run the `src/tune/inference.py` file, or test it out in a simple terminal chat interface in the `src/tune/chatbot.py` file.
@@ -52,6 +51,8 @@ This project contains two language models,
 
 
 ### Fine Tuning Existing Models on Your Own Data
+
+Ensure you have specified the model path inside the file. There are instructions on where to place your path inside the `fine_tune.py` file.
 
 ##### Run Fine Tuning on PreExisting Model
 `python -m src.tune.fine_tune`
