@@ -26,7 +26,9 @@ You can play around with the concepts of language models in the `models` folder.
 You can fine-tune pre-existing models using your own training text. This is fairly straightforward, and all the primary logic for that takes place inside the `src/tune/fine_tune.py` file. You can place your existing model anywhere as long as you specify the path to that model's directory with the `PRETRAINED_MODEL` constant inside the `fine_tune.py` file.
 
 Here's an example of a pretrained model you can use here:
+
 https://huggingface.co/gpt2
+
 Just simply clone this gpt2 repository somewhere on your computer, and set the path in the `fine_tune.py` file. 
 
 ### Inference
