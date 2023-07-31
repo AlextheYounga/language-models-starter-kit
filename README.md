@@ -24,40 +24,59 @@ each broken up into their distinct parts:
 - **GPT Language Model**: GPT is a transformer-based language model that uses a deep neural network architecture, specifically the Transformer model. It is a much more sophisticated model that considers the entire context of a sentence, not just the previous word. GPT is based on a self-attention mechanism that allows it to weigh the importance of each word in the context and capture long-range dependencies in text.
 
 ### Fine Tuning
-You can fine-tune pre-existing models using your own training data. This is fairly straightforward, and all the primary logic for that takes place inside the `src/tune/fine_tune.py` file. There are instructions inside of that file on where to place your models.  
+You can fine-tune pre-existing models using your own training data. This is fairly straightforward, and all the primary logic for that takes place inside the `src/tune/fine_tune.py` file. You can place your existing model anywhere as long as you specify the path to that model's directory with the `PRETRAINED_MODEL` constant inside the `fine_tune.py` file.
 
 ### Inference
 I have two methods of testing inference with the model built into the `src/tune` folder. You can run the `src/tune/inference.py` file, or test it out in a simple terminal chat interface in the `src/tune/chatbot.py` file.
 
-#### Usage
-**Optional:** `python -m venv env`
+### Usage
+*Optional: Create an env* 
+```bash
+python -m venv env
+
+source env/bin/activate
+```
 
 ##### Training data
 Add your input data to the `data/` folder.
 Ensure to update the path to the name of your file in the INPUT_FILE variable if it has a custom name or name it `input.txt`
 
 ##### Download packages
-`pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
+
 
 ### Building your own language model from the ground up
 
 This project contains two language models, 
 
-##### Run Bigram Model
-`python -m src.models.bigram.train`
+#### Run Bigram Model
+```bash
+python -m src.models.bigram.train
+```
 
-##### Run GPT Model
-`python -m src.models.gpt.train`
+#### Run GPT Model
+```bash
+python -m src.models.gpt.train
+```
 
 
 ### Fine Tuning Existing Models on Your Own Data
 
-Ensure you have specified the model path inside the file. There are instructions on where to place your path inside the `fine_tune.py` file.
+Ensure you have specified the model path inside the file. You can place your model anywhere as long as you specify the path to its directory inside of the `fine_tune.py` file.
 
-##### Run Fine Tuning on PreExisting Model
-`python -m src.tune.fine_tune`
+#### Run Fine Tuning on PreExisting Model
+```bash
+python -m src.tune.fine_tune
+```
 
 ##### Test Inference
-`python -m src.tune.inference`
+```bash
+python -m src.tune.inference
+```
+
 ##### Run ChatBot
-`python -m src.tune.chatbot`
+```bash
+python -m src.tune.chatbot
+```
